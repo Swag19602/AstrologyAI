@@ -126,7 +126,7 @@ export default async function handler(
 
     return res.status(200).json({
       message: "Kundali fetched and saved successfully",
-      filePath: `/public/${name.replace(/\s+/g, "_")}_kundali.json`,
+      filePath: `/temp/${name.replace(/\s+/g, "_")}_kundali.json`,
       kundaliData: completeKundali,
     });
   } catch (error: any) {
