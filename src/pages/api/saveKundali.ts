@@ -3,7 +3,7 @@ import fs from "fs";
 import path from "path";
 import moment from "moment-timezone";
 import tzlookup from "tz-lookup";
-
+import Bottleneck from "bottleneck";
 const BASE_URL = "https://json.apiastro.com";
 const API_KEY = process.env.FREE_ASTROLOGY_API_KEY!;
 
@@ -101,6 +101,7 @@ export default async function handler(
 
       const data = await response.json();
       kundaliData[key] = data;
+      setTimeout(() => {}, 1000); // Rate limit
     }
 
     // Prepare full object with metadata + data

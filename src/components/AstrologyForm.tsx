@@ -87,7 +87,7 @@ const AstrologyForm = () => {
                     onChange={handleChange}
                     placeholder="Enter your Full Name"
                     required
-                    className="w-full bg-white/10 text-yellow-100 placeholder-gray border border-yellow-300/30 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all"
+                    className="w-full bg-white/10 text-black placeholder-gray border border-yellow-300/30 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all"
                 />
             </div>
 
@@ -130,7 +130,7 @@ const AstrologyForm = () => {
                     value={formData.placeOfBirth}
                     onChange={handleChange}
                     required
-                    className="w-full bg-white/10 text-yellow-100 placeholder-gray border border-yellow-300/30 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all"
+                    className="w-full bg-white/10 text-black placeholder-gray border border-yellow-300/30 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all"
                 />
             </div>
 
