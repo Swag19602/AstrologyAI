@@ -1,7 +1,11 @@
 {
   "/_app": "pages/_app.js",
+  "/api/hello": "pages/api/hello.js",
+  "/api/chat": "pages/api/chat.js",
+  "/api/saveKundali": "pages/api/saveKundali.js",
+  "/chat": "pages/chat.html",
+  "/": "pages/index.html",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js",
-  "/chat": "pages/chat.js"
+  "/404": "pages/404.html"
 }
