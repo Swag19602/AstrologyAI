@@ -118,7 +118,7 @@ export default async function handler(
 
     // Save to JSON file
     const filePath = path.join(
-      "tmp",
+      "/tmp/",
       `${name.replace(/\s+/g, "_")}_kundali.json`
     );
     fs.writeFileSync(filePath, JSON.stringify(completeKundali, null, 2));
