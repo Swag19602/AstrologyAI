@@ -29,7 +29,7 @@ export default async function handler(
 
   try {
     const fileName = `${name.trim().replace(/\s+/g, "_")}_kundali.json`
-    const filePath = path.join(process.cwd(), "temp", fileName);
+    const filePath = path.join(process.cwd(), "data", fileName);
     console.log("File path:", filePath);
     let kundaliFileData = "";
     if (!fs.existsSync(filePath)) {
