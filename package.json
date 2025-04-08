@@ -1,0 +1,32 @@
+{
+  "name": "next-astrology-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.0",
+    "axios": "^1.8.4",
+    "framer-motion": "^12.6.3",
+    "lucide-react": "^0.487.0",
+    "moment-timezone": "^0.5.48",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-markdown": "^10.1.0",
+    "tailwindcss": "^2.2.19",
+    "tz-lookup": "^6.1.25"
+  },
+  "devDependencies": {
+    "@types/react": "19.1.0",
+    "@types/tz-lookup": "^6.1.2",
+    "eslint": "^7.32.0",
+    "eslint-config-next": "latest",
+    "postcss": "^8.3.6",
+    "typescript": "^4.4.4"
+  }
+}
