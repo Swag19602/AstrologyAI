@@ -4,7 +4,7 @@ import { Sparkles } from 'lucide-react';
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     return (
         <div className="min-h-screen flex flex-col">
-            <header className="bg-blue-600 text-white p-4">
+            <header className="bg-blue-600 text-white p-4 ">
                     <div className="flex items-center gap-3">
                         <Sparkles className="text-yellow-300 w-10 h-10" />
                         <h1 className="text-3xl font-bold tracking-wide">Astrology AI</h1>

@@ -10,26 +10,50 @@ const MessageBubble = ({ text, from }: { text: string; from: 'user' | 'bot' }) =
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className={clx('flex mb-3', {
+            className={clx('flex mb-4 items-center', {
                 'justify-end': isUser,
                 'justify-start': !isUser,
             })}
         >
+            {/* Emoji / Avatar */}
+            {!isUser && (
+                <span className="mr-3 text-2xl flex items-center justify-center w-8 h-8 bg-purple-500 text-white rounded-full shadow-lg">
+                    🤖
+                </span>
+            )}
+            {isUser && (
+                <span className="ml-3 text-2xl flex items-center justify-center w-8 h-8 bg-yellow-500 text-white rounded-full shadow-lg">
+                    🧑‍💻
+                </span>
+            )}
+
             <div
                 className={clx(
                     'max-w-[75%] px-5 py-3 rounded-2xl text-sm leading-relaxed shadow-lg',
                     {
-                        // 🧑 User message: rich gradient with white text
-                        'bg-gradient-to-br from-[#5b1fa6] via-[#a343ff] to-[#ff8a00] text-white': isUser,
+                        // User bubble: vibrant gradient with white text
+                        'bg-gradient-to-br from-yellow-400 via-orange-500 to-red-500 text-white': isUser,
 
-                        // 🤖 Bot message: darker gradient with light gray text for better contrast
-                        'bg-gradient-to-br from-[#2e1065] via-[#6b21a8] to-[#b83280] text-gray-200': !isUser,
+                        // Bot bubble: cooler gradient with light gray text
+                        'bg-gradient-to-br from-purple-700 via-purple-500 to-pink-500 text-gray-100': !isUser,
                     }
                 )}
             >
                 <ReactMarkdown
                     components={{
-                        p: ({ node, ...props }) => <p {...props} className="prose prose-sm" />,
+                        h1: ({ node, ...props }) => (
+                            <h1 {...props} className="text-lg font-bold mb-2" />
+                        ),
+                        h2: ({ node, ...props }) => (
+                            <h2 {...props} className="text-base font-semibold mb-1" />
+                        ),
+                        strong: ({ node, ...props }) => (
+                            <strong {...props} className="font-semibold" />
+                        ),
+                        li: ({ node, ...props }) => (
+                            <li {...props} className="list-disc list-inside" />
+                        ),
+                        p: ({ node, ...props }) => <p {...props} className="mb-2" />,
                     }}
                 >
                     {text}
