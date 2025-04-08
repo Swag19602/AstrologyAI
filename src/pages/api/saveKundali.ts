@@ -119,14 +119,14 @@ export default async function handler(
     // Save to JSON file
     const filePath = path.join(
       process.cwd(),
-      "data",
+      "tmp",
       `${name.replace(/\s+/g, "_")}_kundali.json`
     );
     fs.writeFileSync(filePath, JSON.stringify(completeKundali, null, 2));
 
     return res.status(200).json({
       message: "Kundali fetched and saved successfully",
-      filePath: `/data/${name.replace(/\s+/g, "_")}_kundali.json`,
+      filePath: `/tmp/${name.replace(/\s+/g, "_")}_kundali.json`,
       kundaliData: completeKundali,
     });
   } catch (error: any) {
