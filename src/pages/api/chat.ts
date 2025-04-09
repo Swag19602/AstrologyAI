@@ -19,6 +19,7 @@ export default async function handler(
     console.log("Request body:", req.body);
     
     const name = kundaliData.kundaliData.name;
+    const chatHistory = req.body.chatHistory || [];
   if (!userMessage || !name) {
     console.error("Missing userMessage or kundaliData");
     return res.status(400).json({ message: "Missing userMessage or name" });
@@ -37,7 +38,7 @@ export default async function handler(
     }else{
         kundaliFileData = fs.readFileSync(filePath, "utf-8");
     }
-    const prompt = promptGeneration(kundaliFileData, userMessage);
+    const prompt = promptGeneration(kundaliFileData, userMessage, chatHistory);
     const result = await model.generateContent(prompt);
     const response = result.response;
     const text = response.text();
@@ -55,9 +56,10 @@ export default async function handler(
 interface PromptGenerationInput {
   kundaliFileData: string;
   userMessage: string;
+  chatHistory: Array<{ from: string; text: string }>;
 }
 
-const promptGeneration = (kundaliFileData: PromptGenerationInput["kundaliFileData"], userMessage: PromptGenerationInput["userMessage"]): string => {
+const promptGeneration = (kundaliFileData: PromptGenerationInput["kundaliFileData"], userMessage: PromptGenerationInput["userMessage"], chatHistory: PromptGenerationInput['chatHistory']): string => {
   const prompt = `
 You are a revered Vedic astrologer with decades of experience, deeply grounded in the principles of Jyotish Shastra, Nakshatra analysis, and Dasha interpretations. You combine spiritual wisdom with analytical precision.
 
@@ -69,7 +71,12 @@ Respond in a tone that is empathetic, wise, and easy to understand — as if you
 
 📜 **Kundali Data (JSON Format)**:
 ${kundaliFileData}
-
+Here is the ChatHistory with the user:
+${JSON.stringify(
+    chatHistory,
+    null,
+    2
+)}
 ---
 
 🧘‍♂️ **Guidelines for Interpretation**:

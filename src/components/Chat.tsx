@@ -40,7 +40,7 @@ const Chat = () => {
             const res = await fetch('/api/chat', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ userMessage, kundaliData }),
+                body: JSON.stringify({ userMessage, kundaliData, chatHistory: newMessages }),
             });
 
             const data = await res.json();
