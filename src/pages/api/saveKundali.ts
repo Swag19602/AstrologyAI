@@ -91,6 +91,7 @@ export default async function handler(
         body: JSON.stringify(requestBody),
       });
 
+      // Rate limiting
       console.log(`Fetching ${key}: ${response.status} ${response.statusText}`);
 
       if (!response.ok) {
@@ -101,7 +102,7 @@ export default async function handler(
 
       const data = await response.json();
       kundaliData[key] = data;
-      setTimeout(() => {}, 1000); // Rate limit
+      await new Promise((resolve) => setTimeout(resolve, 3000)); // Delay for 3 seconds
     }
 
     // Prepare full object with metadata + data
